@@ -65,8 +65,7 @@ class RestaurantPizza(db.Model, SerializerMixin):
 
 
     @validates('price')
-    def validate_age(self, key, price):
-        if price < 2 or price > 29:
-            raise ValueError('price must be between 1 and 30 years old')
-        return price
-
+    def validate_age(self, key, value):
+        if value < 2 and value > 29:
+            raise ValueError("must have a valid price")
+        return value
