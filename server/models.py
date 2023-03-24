@@ -64,8 +64,9 @@ class RestaurantPizza(db.Model, SerializerMixin):
     serialize_rules = ('-restaurant.pizzas', '-pizza.restaurants', '-restaurant.restaurant_pizzas', 'pizza.restaurant_pizzas','-created_at', '-updated_at')
 
 
+#### typo here on function name - didn't affect whether it would work or not### 
     @validates('price')
-    def validate_age(self, key, value):
+    def validate_price(self, key, value):
         if value < 2 and value > 29:
             raise ValueError("must have a valid price")
         return value

@@ -62,6 +62,7 @@ class RestaurantById(Resource):
             response = make_response(
                 "",
                 204
+
             )
 
         else:
@@ -92,8 +93,9 @@ api.add_resource(Pizzas, '/pizzas')
 class RestaurantPizzas(Resource):
     def post(self):
         
+        #####typo here...i had Pizzas and it should be Pizza#########
         try:
-            new_restaurant_pizza = RestaurantPizzas(
+            new_restaurant_pizza = RestaurantPizza(
                 price = request.get_json()('price'),
                 restaurant_id = request.get_json()('restaurant_id'),
                 pizza_id = request.get_json()('pizza_id')
